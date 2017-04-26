@@ -1,4 +1,5 @@
 import picamera
+import requests
 from time import sleep
 
 camera = picamera.PiCamera()
