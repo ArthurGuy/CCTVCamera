@@ -5,6 +5,6 @@ from time import sleep
 camera = picamera.PiCamera()
 
 camera.capture('image.jpg')
-with open('image.jpg', 'rb') as f: r = requests.post('https://bbms.buildbrighton.com/camera/store', files={'image.jpg': f})
+with open('image.jpg', 'rb') as f: r = requests.post('https://bbms.buildbrighton.com/camera/store', files={'image': f})
 
 sleep(30);
