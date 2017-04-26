@@ -5,7 +5,6 @@ var version = '1.19';
 var args = process.argv.slice(2);
 
 var httpServer = 'https://bbms.buildbrighton.com/camera/store';
-var socketServer = 'http://192.168.10.100:3000/';
 
 if (typeof args[0] != 'undefined') {		
     httpServer = 'http://' + args[1];		
@@ -34,7 +33,7 @@ var ipAddress = null;
 var updateInProgress = false;
 
 
-var heartbeatIntervalID = setInterval(takeImage, 30000);
+var heartbeatIntervalID = setInterval(takeImage, 10000);
 
 function getAbsoluteImagePath() {
     return path.join(__dirname, imagePath, imageName);
@@ -61,9 +60,6 @@ function sendImage(code) {
     
     // Post the image data via an http request
     var form = new FormData();
-    form.append('takeId', takeId);
-    form.append('startTime', lastReceiveTime);
-    form.append('cameraName', cameraName);
     form.append('fileName', fileName);
     form.append('image', fs.createReadStream(getAbsoluteImagePath()));
 
