@@ -66,6 +66,7 @@ function sendImage(code) {
     form.submit(httpServer, function(err, res) {
         if (err) {
             console.log("Image upload error");
+            return false;
         } else {
             console.log("Image uploaded");
         }
